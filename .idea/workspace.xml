@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce57fd88-cde0-4a42-bd55-b105ca49291d" name="Changes" comment="" />
+    <list default="true" id="ce57fd88-cde0-4a42-bd55-b105ca49291d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/findsomeone/dto/NearbyMeetupResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/findsomeone/controller/MeetupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/findsomeone/controller/MeetupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/findsomeone/controller/MeetupRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/findsomeone/controller/MeetupRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/findsomeone/repository/MeetupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/findsomeone/repository/MeetupRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/findsomeone/service/MeetupRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/findsomeone/service/MeetupRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/findsomeone/service/MeetupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/findsomeone/service/MeetupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/findsomeone/controller/MeetupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/findsomeone/controller/MeetupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/findsomeone/controller/MeetupRequestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/findsomeone/controller/MeetupRequestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/findsomeone/repository/MeetupRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/findsomeone/repository/MeetupRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/findsomeone/service/MeetupRequestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/findsomeone/service/MeetupRequestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/findsomeone/service/MeetupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/findsomeone/service/MeetupService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,13 +47,6 @@
     &quot;accountId&quot;: &quot;e23156ec-8038-4710-84e9-855391365540&quot;
   }
 }</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -48,20 +55,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.FindSomeoneBackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/ashutosh/Downloads/find-someone-backend/src/main/java/com/findsomeone&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ashutosh/Documents/find-someone-backend&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.FindSomeoneBackendApplication.executor": "Run",
+    "Maven.find-someone-backend [clean].executor": "Run",
+    "Maven.find-someone-backend [compile].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.FindSomeoneBackendApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/ashutosh/Downloads/find-someone-backend/src/main/java/com/findsomeone",
+    "last_opened_file_path": "/Users/ashutosh/Documents/find-someone-backend",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.FindSomeoneBackendApplication">
     <configuration name="FindSomeoneBackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.findsomeone.find_someone_backend.FindSomeoneBackendApplication" />
@@ -96,6 +108,13 @@
         <item itemvalue="Application.FindSomeoneBackendApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

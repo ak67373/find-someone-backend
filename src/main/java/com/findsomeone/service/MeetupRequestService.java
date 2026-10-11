@@ -7,6 +7,7 @@ import com.findsomeone.repository.MeetupRequestRepository;
 import com.findsomeone.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -40,6 +41,16 @@ public class MeetupRequestService {
                                 "Meetup not found"
                         ));
 
+        if (meetup.getStatus() == MeetupStatus.CANCELLED
+                || meetup.getStatus() == MeetupStatus.COMPLETED
+                || meetup.getStatus() == MeetupStatus.EXPIRED) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Cannot request to join an inactive meetup"
+            );
+        }
+
+
         User user = userRepository.findById(userId)
                 .orElseThrow(() ->
                         new ResponseStatusException(
@@ -68,12 +79,17 @@ public class MeetupRequestService {
             );
         }
 
-        if (meetup.getStatus() == MeetupStatus.FULL) {
+        long participantCount =
+                meetupParticipantRepository.countByMeetupId(meetupId);
+
+        if (meetup.getStatus() == MeetupStatus.FULL
+                || participantCount >= meetup.getMaxParticipants()) {
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     "Meetup is full"
             );
         }
+
 
         MeetupRequest request = new MeetupRequest();
 
@@ -84,6 +100,7 @@ public class MeetupRequestService {
         return meetupRequestRepository.save(request);
     }
 
+    @Transactional
     public MeetupRequest acceptRequest(Long requestId, Long userId) {
 
         MeetupRequest request = meetupRequestRepository.findById(requestId)
@@ -92,6 +109,14 @@ public class MeetupRequestService {
                                 HttpStatus.NOT_FOUND,
                                 "Meetup request not found"
                         ));
+
+        Meetup meetup = meetupRepository.findByIdForUpdate(
+                request.getMeetup().getId()
+        ).orElseThrow(() ->
+                new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Meetup not found"
+                ));
 
         if (!request.getMeetup().getCreator().getId().equals(userId)) {
             throw new ResponseStatusException(
@@ -107,12 +132,21 @@ public class MeetupRequestService {
             );
         }
 
-        long participantCount =
-                meetupParticipantRepository.countByMeetupId(
-                        request.getMeetup().getId()
-                );
 
-        if (participantCount >= request.getMeetup().getMaxParticipants()) {
+        if (meetup.getStatus() == MeetupStatus.CANCELLED
+                || meetup.getStatus() == MeetupStatus.COMPLETED
+                || meetup.getStatus() == MeetupStatus.EXPIRED) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Cannot accept requests for an inactive meetup"
+            );
+        }
+
+
+        long participantCount =
+                meetupParticipantRepository.countByMeetupId(meetup.getId());
+
+        if (participantCount >= meetup.getMaxParticipants()) {
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     "Meetup is full"
@@ -142,9 +176,9 @@ public class MeetupRequestService {
                         request.getMeetup().getId()
                 );
 
-        if (updatedParticipantCount >= request.getMeetup().getMaxParticipants()) {
-            request.getMeetup().setStatus(MeetupStatus.FULL);
-            meetupRepository.save(request.getMeetup());
+        if (updatedParticipantCount >= meetup.getMaxParticipants()) {
+            meetup.setStatus(MeetupStatus.FULL);
+            meetupRepository.save(meetup);
         }
 
         return meetupRequestRepository.save(request);

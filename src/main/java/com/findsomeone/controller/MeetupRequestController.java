@@ -71,6 +71,13 @@ public class MeetupRequestController {
         return meetupRequestService.rejectRequest(requestId, userId);
     }
 
+    @PatchMapping("/{requestId}/reject")
+    public MeetupRequest rejectRequest(
+            @PathVariable Long requestId,
+            @RequestParam Long userId) {
+        return meetupRequestService.rejectRequest(requestId, userId);
+    }
+
 
 
 }
